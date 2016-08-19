@@ -36,6 +36,7 @@ int  exerciseThree()
 
 	int x;
 	int input[5], t;
+	int sum = 0;
 
 	for (x = 0; x<5; x++)
 	{
@@ -43,20 +44,47 @@ int  exerciseThree()
 		std::cin >> input[x];
 	}
 
-	for (x = 0; x<5; x++)
+	for (x = 0; x < 5; x++)
 	{
-		for (int y = 0; y<4; y++)
-		{
-			if (input[y]>input[y + 1])
-			{
-				t = input[y];
-				input[y] = input[y + 1];
-				input[y + 1] = t;
-			}
-		}
+		sum = input[x] + sum;
 	}
 
-	std::cout << "Here are your numbers in ascending order: " << std::endl;
+	if (sum > 0)
+	{
+		for (x = 0; x < 5; x++)
+		{
+			for (int y = 0; y < 4; y++)
+			{
+				if (input[y] > input[y + 1])
+				{
+					t = input[y];
+					input[y] = input[y + 1];
+					input[y + 1] = t;
+				}
+			}
+		}
+		std::cout << "Here are your numbers in ascending order: " << std::endl;
+	}
+	else if (sum < 0)
+	{
+		for (x = 0; x < 5; x++)
+		{
+			for (int y = 0; y < 4; y++)
+			{
+				if (input[y] < input[y + 1])
+				{
+					t = input[y];
+					input[y] = input[y + 1];
+					input[y + 1] = t;
+				}
+			}
+		}
+		std::cout << "Here are your numbers in descending order: " << std::endl;
+	}
+	else
+	{
+		std::cout << "Here are your numbers in the order you gave: " << std::endl;
+	}
 
 	for (x = 0; x<5; x++)
 	{

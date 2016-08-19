@@ -31,37 +31,43 @@ int exerciseTwo()
 	return 0;
 }
 
-int exerciseThree()
-{
-	int a;
-	int b;
-	int c;
-	int d;
-	int e;
-	int sum;
-	int orderDir;
+int  exerciseThree()
+{   
 
-	std::cout << "Give me five positive or negative numbers." << std::endl;
-	std::cin >> a >> b >> c >> d >> e;
-	sum = a + b + c + d + e;
+	int x;
+	int input[5], t;
 
-	if (sum > 0)
+	for (x = 0; x<5; x++)
 	{
-		orderDir = 1;
-	}
-	else if (sum < 0)
-	{
-		orderDir = 0;
-	}
-	else if (sum == 0)
-	{
-		orderDir = 2;
+		std::cout << "Enter positive or negative number: " << std::endl;
+		std::cin >> input[x];
 	}
 
+	for (x = 0; x<5; x++)
+	{
+		for (int y = 0; y<4; y++)
+		{
+			if (input[y]>input[y + 1])
+			{
+				t = input[y];
+				input[y] = input[y + 1];
+				input[y + 1] = t;
+			}
+		}
+	}
 
+	std::cout << "Here are your numbers in ascending order: " << std::endl;
 
+	for (x = 0; x<5; x++)
+	{
+		std::cout << input[x];
+		std::cout << "\n";
+	}
+
+	system("pause");
 	return 0;
 }
+
 
 int exerciseFour()
 {
@@ -107,22 +113,26 @@ int exerciseSix()
 
 	switch (oper)
 	{
-	case 37:
+	case 36:
+		std::cout << "Invalid operator!" << std::endl;
+		break;
+	case '%':
 		answer = num1 % num2;
 		break;
-	case 42:
+	case '*':
 		answer = num1 * num2;
 		break;
-	case 43:
+	case '+':
 		answer = num1 + num2;
 		break;
-	case 45:
+	case '-':
 		answer = num1 - num2;
 		break;
-	case 47:
+	case '/':
 		answer = num1 / num2;
 		break;
 	default:
+		std::cout << "Invalid operator!" << std::endl;
 		break;
 	}
 
@@ -215,7 +225,7 @@ e. True
 
 int main()
 {
-	exerciseTwo();
+	exerciseThree();
 	system("cls");
 	exerciseSix();
 	exerciseSeven();

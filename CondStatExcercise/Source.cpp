@@ -41,7 +41,7 @@ int exerciseThree()
 	int sum;
 	int orderDir;
 
-	std::cout << "Give me five numbers." << std::endl;
+	std::cout << "Give me five positive or negative numbers." << std::endl;
 	std::cin >> a >> b >> c >> d >> e;
 	sum = a + b + c + d + e;
 
@@ -58,8 +58,9 @@ int exerciseThree()
 		orderDir = 2;
 	}
 
-	return 0;
 
+
+	return 0;
 }
 
 int exerciseFour()
@@ -101,43 +102,122 @@ int exerciseSix()
 	char oper;
 	int answer;
 
-	while (true)
-	{
-		std::cout << "This is a basic calculator. Type in a number, a symbol, and a second number." << std::endl;
-		std::cin >> num1 >> oper >> num2;
+	std::cout << "This is a basic calculator. Type in a number, a symbol, and a second number." << std::endl;
+	std::cin >> num1 >> oper >> num2;
 
-		switch (oper)
+	switch (oper)
+	{
+	case 37:
+		answer = num1 % num2;
+		break;
+	case 42:
+		answer = num1 * num2;
+		break;
+	case 43:
+		answer = num1 + num2;
+		break;
+	case 45:
+		answer = num1 - num2;
+		break;
+	case 47:
+		answer = num1 / num2;
+		break;
+	default:
+		break;
+	}
+
+	std::cout << "The answer is: " << answer << std::endl;
+	system("pause");
+	system("cls");
+
+	return 0;
+}
+
+int exerciseSeven()
+{
+	int monthNo;
+	
+	std::cout << "Enter a month number, and I'll tell you how many days the month has." << std::endl;
+	std::cin >> monthNo;
+
+	if (monthNo > 0 && monthNo < 13)
+	{
+		switch (monthNo)
 		{
-		case 37:
-			answer = num1 % num2;
+		case 1:
+			std::cout << "January 2016 has 31 days. ";
 			break;
-		case 42:
-			answer = num1 * num2;
+		case 2:
+			std::cout << "February 2016 has 29 days. ";
 			break;
-		case 43:
-			answer = num1 + num2;
+		case 3:
+			std::cout << "March 2016 has 31 days. ";
 			break;
-		case 45:
-			answer = num1 - num2;
+		case 4:
+			std::cout << "April 2016 has 30 days. ";
 			break;
-		case 47:
-			answer = num1 / num2;
+		case 5:
+			std::cout << "May 2016 has 31 days. ";
+			break;
+		case 6:
+			std::cout << "June 2016 has 30 days. ";
+			break;
+		case 7:
+			std::cout << "July 2016 has 31 days. ";
+			break;
+		case 8:
+			std::cout << "August 2016 has 31 days. ";
+			break;
+		case 9:
+			std::cout << "September 2016 has 30 days. ";
+			break;
+		case 10:
+			std::cout << "October 2016 has 31 days. ";
+			break;
+		case 11:
+			std::cout << "November 2016 has 30 days. ";
+			break;
+		case 12:
+			std::cout << "December 2016 has 31 days. ";
 			break;
 		default:
 			break;
 		}
-
-		std::cout << "The answer is: " << answer << std::endl;
-		system("pause");
-		system("cls");
 	}
+	else
+	{
+		std::cout << "Invalid month number! " << std::endl;
+	}
+	system("pause");
 	return 0;
 }
+
+/* 
+Exercise 8 answers:
+a. True
+b. False
+c. ???
+d. True
+e. True
+f. False
+g. False
+h. True
+i. False
+j. True
+
+Exercise 9 answers:
+a. True
+b. False
+c. False
+d. True
+e. True
+*/
 
 int main()
 {
 	exerciseTwo();
 	system("cls");
 	exerciseSix();
+	exerciseSeven();
 	return 0;
 }
